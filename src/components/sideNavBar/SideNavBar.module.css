@@ -1,0 +1,39 @@
+.navBar{
+    background-color: burlywood;
+    border-radius: 10px;
+    margin: 10px;
+    height: calc(100vh - 20px);
+    width: 250px;
+}
+
+
+.navBarItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 0px;
+    height: 100%;
+}
+
+
+.navLink {
+    text-decoration: none;
+    display: flex;
+    
+}
+
+.navItemIcon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+.navItemTitle {
+    flex: 70%;
+
+}
+
+.collapseBtn {
+    background-color: burlywood;
+    color: #721e8b;
+}
