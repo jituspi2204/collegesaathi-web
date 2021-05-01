@@ -6,14 +6,13 @@ import Home from "./pages/Home/Home";
 import ReportCard from "./pages/ReportCard";
 import StudyMaterial from "./pages/StudyMaterial";
 import SideNavBar from './components/sideNavBar/SideNavBar'
-import styles from './App.module.css'
 
 function App() {
   return (
-    <div className={styles.appLayout}>
+    <div >
       <Router>
         <SideNavBar />
-        <div className={styles.mainScreen}>
+        <div >
           <Switch>
             <Route path='/' exact>
               <Home/>
