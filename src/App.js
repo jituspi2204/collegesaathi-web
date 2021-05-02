@@ -9,10 +9,10 @@ import SideNavBar from './components/sideNavBar/SideNavBar'
 
 function App() {
   return (
-    <div >
+    <div className="min-h-screen md:flex">
       <Router>
         <SideNavBar />
-        <div >
+        <main className="p-10 lg:mx-36 w-screen">
           <Switch>
             <Route path='/' exact>
               <Home/>
@@ -20,17 +20,17 @@ function App() {
             <Route path='/notifications' >
               <Notification/>
               </Route>
-            <Route path='/study-material'>
+            <Route path='/search'>
               <StudyMaterial/>
             </Route>
-            <Route path='/report-card' >
+            <Route path='/rank-list' >
               <ReportCard/>
               </Route>
             <Route path='/account' >
               <AccountSettings/>
               </Route>
           </Switch>
-        </div>
+        </main>
       </Router>
     </div>
   );

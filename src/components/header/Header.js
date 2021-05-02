@@ -1,14 +1,10 @@
 import React from 'react'
-import  styles from "./Header.module.css"
-
-const Header = ({title, children}) => {
+const Header = ({title}) => {
     return (
-        <div>
-            <header className={styles.header}>
-                <h1 className={styles.title}>{title}</h1>
-                {children}
-            </header>
-        </div>
+        <header>
+            <p className="text-4xl font-bold">{title}</p>
+            <div className="w-20 bg-yellow-400 h-2 mb-10" />
+        </header>
     )
 }
 

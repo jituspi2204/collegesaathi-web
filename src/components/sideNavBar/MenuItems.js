@@ -1,17 +1,5 @@
-import { FiBell, FiBook, FiFileText, FiHome, FiSmile } from 'react-icons/fi'
+import { FiBell, FiSearch , FiHome, FiSmile, FiTrendingUp } from 'react-icons/fi'
 const MenuItems = [
-    {
-        title: 'Notifications',
-        url: '/notifications',
-        cName: 'navLink',
-        icon: <FiBell  size='25' />
-    },
-    {
-        title: 'Study Material',
-        url: '/study-material',
-        cName: 'navLink',
-        icon: <FiBook size='25' />
-    },
     {
         title: 'Home',
         url: '/',
@@ -20,17 +8,29 @@ const MenuItems = [
 
     },
     {
-        title: 'Report Card',
-        url: '/report-card',
+        title: 'Search',
+        url: '/search',
         cName: 'navLink',
-        icon: <FiFileText size='25' />
+        icon: <FiSearch size='25' />
     },
     {
         title: 'Account',
         url: '/account',
         cName: 'navLink',
         icon: <FiSmile size='25' />
-    }
+    },
+    {
+        title: 'Rank',
+        url: '/rank-list',
+        cName: 'navLink',
+        icon: <FiTrendingUp size='25' />
+    },
+    {
+        title: 'Notifications',
+        url: '/notifications',
+        cName: 'navLink',
+        icon: <FiBell  size='25' />
+    },
 ]
 
 export default MenuItems
