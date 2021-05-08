@@ -6,8 +6,7 @@
 /* #edae39 icon color  */
 
 @layer base {
-    body {
-        @apply bg-gray-800 text-white;
-    }
+  body {
+    @apply bg-gray-800 text-white;
+  }
 }
-

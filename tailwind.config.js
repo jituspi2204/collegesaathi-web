@@ -1,26 +1,26 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       gray: colors.coolGray,
       white: colors.white,
       yellow: colors.amber,
-      black: colors.black
-
+      black: colors.black,
+      green: colors.emerald,
+      blue: colors.blue,
     },
     fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
+      sans: ["Poppins", "sans-serif"],
     },
-    extend: {
-    }
+    extend: {},
   },
   variants: {
     extend: {
-      animation: ['group-hover'],
+      animation: ["group-hover"],
     },
   },
   plugins: [],
-}
+};

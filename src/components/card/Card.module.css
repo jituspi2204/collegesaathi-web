@@ -1,47 +1,47 @@
 .cardContainer {
-    background-color: #252525;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
+  background-color: #252525;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .cardHeading {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cardTitle {
-    font-size: 1rem;
-    margin: 0;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .cardTitleIcon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .cardTitleIconItem {
-    padding: 0 3px;
+  padding: 0 3px;
 }
 
 .cardContentContainer {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cardContent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .leftContentItem {
-    font-size: 1em;
-    margin: 0;
-    font-weight: normal;
+  font-size: 1em;
+  margin: 0;
+  font-weight: normal;
 }
 .rightContentItem {
-    font-size: 1em;
-    margin: 0;
-    font-weight: 600;
+  font-size: 1em;
+  margin: 0;
+  font-weight: 600;
 }
