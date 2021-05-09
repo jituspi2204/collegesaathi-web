@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import Header from "../components/header/Header";
+import Loading from "../components/loading/Loading";
 import SubHeading from "../components/subHeading/SubHeading";
 import useRankList from "../hooks/useRankList";
 
@@ -26,7 +27,7 @@ const Rank = ({ user }) => {
     <div>
       <Header title="Rank List" />
       {status === "loading" ? (
-        <p>Loading....</p>
+        <Loading />
       ) : status === "error" ? (
         <p>Error...</p>
       ) : (

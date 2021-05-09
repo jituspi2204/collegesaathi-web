@@ -8,6 +8,8 @@ import StudyMaterial from "./pages/StudyMaterial";
 import SideNavBar from "./components/sideNavBar/SideNavBar";
 import SubjectListProvider from "./context/subjectListContext";
 import useStudentDetails from "./hooks/useStudentDetails";
+import { logDOM } from "@testing-library/dom";
+import Loading from "./components/loading/Loading";
 
 function App() {
   const { data, status } = useStudentDetails();
@@ -18,7 +20,7 @@ function App() {
       <Router>
         <SideNavBar />
         {status === "loading" ? (
-          <p>Loading...Please Wait...</p>
+          <Loading location="app" />
         ) : status === "error" ? (
           <p>Error while loading your app !</p>
         ) : (

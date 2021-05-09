@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import Loading from "../components/loading/Loading";
 import useUtilities from "../hooks/useUtilities";
 import getSubjectsListSemWise from "../utils/getSubjectsListSemWise";
 
@@ -15,7 +16,7 @@ const SubjectListProvider = ({ children }) => {
   }, [status, data]);
 
   return status === "loading" ? (
-    <div>Loading...</div>
+    <Loading />
   ) : status === "error" ? (
     <div>Error...</div>
   ) : (

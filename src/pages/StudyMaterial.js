@@ -4,6 +4,7 @@ import SubHeading from "../components/subHeading/SubHeading";
 import { SubjectListContext } from "../context/subjectListContext";
 import useFetchFiles from "../hooks/useFetchFiles";
 import { FiFileText, FiDownload, FiVideo } from "react-icons/fi";
+import Loading from "../components/loading/Loading";
 
 const StudyMaterial = () => {
   const [materialType, setMaterialType] = useState("notes");
@@ -149,7 +150,7 @@ const StudyMaterial = () => {
 
       <div>
         {status === "loading" ? (
-          <p>Loading...</p>
+          <Loading />
         ) : status === "error" ? (
           <p>Encountered an error ! Please try again</p>
         ) : status === "success" ? (
