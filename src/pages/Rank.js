@@ -98,7 +98,7 @@ const Rank = ({ user }) => {
                     CGPA - <span className="font-semibold">{student.sgpa}</span>
                   </p>
                 </div>
-                <p>Maharaja Surajmal Institute of Technology</p>
+                <p>{student.college}</p>
               </div>
             );
           })}
