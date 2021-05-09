@@ -27,6 +27,7 @@ const Tabs = ({ rollno }) => {
       )[0];
       let pprIds = filterPaperIDs(semester);
 
+      console.log("USE EFFECT", semesters, toggleView, pprIds)
       setSemesters(data.semesters);
       setSemester(semester);
       setPprIds(pprIds);
@@ -71,8 +72,9 @@ const Tabs = ({ rollno }) => {
       <div className="flex mb-2">{tabItemJsx}</div>
 
       <div>
+        { semester ? (
+          <>
         <SubHeading title="Semester Summary" />
-        {semester && (
           <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">
             <p>Obtained / Total </p>
             <p>
@@ -86,7 +88,6 @@ const Tabs = ({ rollno }) => {
             <p> Total Credits </p>
             <p> {semester.credit} </p>
           </div>
-        )}
 
         <SubHeading title="Subjects" />
         {subjects.map((subject) => {
@@ -110,6 +111,10 @@ const Tabs = ({ rollno }) => {
             </div>
           );
         })}
+          </>
+        ) : <p>No Results Found !</p>
+        }
+
       </div>
     </div>
   );
