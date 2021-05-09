@@ -15,7 +15,7 @@ const SubjectListProvider = ({ children }) => {
   }, [status, data]);
 
   return status === "loading" ? (
-    <div>Loading.Context ..</div>
+    <div>Loading...</div>
   ) : status === "error" ? (
     <div>Error...</div>
   ) : (

@@ -34,10 +34,10 @@ const Home = ({ user }) => {
       <SubHeading title="My Files" />
       {user.reads.map((file) => {
         return (
-          <div className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
+          <div key={file.name} className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
             <div className="flex justify-between">
               <p className="font-semibold">
-                {subjectListSemWise[file.semester][file.subject]}
+                {subjectListSemWise[file.semester] ?  subjectListSemWise[file.semester][file.subject] : "Loading..."}
               </p>
               {/* <div className="w-6 h-6  bg-yellow-400 text-black rounded-full">
                 <p className="text-center font-bold">1</p>

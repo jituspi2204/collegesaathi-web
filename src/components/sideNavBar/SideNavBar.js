@@ -1,17 +1,17 @@
 import React from "react";
 import MenuItems from "./MenuItems";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SideNavBar = () => {
   return (
-    <div className="md:max-h-screen md:my-auto">
+    <div className="">
       <nav className="flex flex-row max-w-screen justify-center items-center md:flex-col">
         {MenuItems.map((item, index) => {
           return (
             <div key={index}>
-              <Link to={item.url}>
+              <NavLink to={item.url} exact={item.url === "/"} activeClassName="text-yellow-500">
                 <SideBarIcon title={item.title} icon={item.icon} />
-              </Link>
+              </NavLink>
             </div>
           );
         })}
