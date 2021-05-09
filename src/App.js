@@ -16,36 +16,36 @@ function App() {
 
   return (
     <div className="min-h-screen md:flex">
-                <SubjectListProvider>
-      <Router>
-        <SideNavBar />
-        {status === "loading" ? (
-          <Loading location="app" />
-        ) : status === "error" ? (
-          <p>Error while loading your app !</p>
-        ) : (
-          <main className="p-10 lg:mx-36 w-screen">
-            <Switch>
-              <Route path="/" exact>
-                <Home user={data.user} />
-              </Route>
-              <Route path="/notifications">
-                <Notification notifications={data.user.notifications} />
-              </Route>
-              <Route path="/search">
+      <SubjectListProvider>
+        <Router>
+          <SideNavBar />
+          {status === "loading" ? (
+            <Loading location="app" />
+          ) : status === "error" ? (
+            <p>Error while loading your app !</p>
+          ) : (
+            <main className="p-10 lg:mx-36 w-screen">
+              <Switch>
+                <Route path="/" exact>
+                  <Home user={data.user} />
+                </Route>
+                <Route path="/notifications">
+                  <Notification notifications={data.user.notifications} />
+                </Route>
+                <Route path="/search">
                   <StudyMaterial />
-              </Route>
-              <Route path="/rank-list">
-                <Rank user={data.user} />
-              </Route>
-              <Route path="/account">
+                </Route>
+                <Route path="/rank-list">
+                  <Rank user={data.user} />
+                </Route>
+                <Route path="/account">
                   <AccountSettings user={data.user} />
-              </Route>
-            </Switch>
-          </main>
-        )}
-      </Router>
-                </SubjectListProvider>
+                </Route>
+              </Switch>
+            </main>
+          )}
+        </Router>
+      </SubjectListProvider>
     </div>
   );
 }

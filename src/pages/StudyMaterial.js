@@ -34,10 +34,10 @@ const StudyMaterial = () => {
   };
 
   const semesterChangeHandler = (e) => {
-    let semesterChoosen = e.target.value.slice(-1)
-    let firstSubjectCode = Object.keys(subjectListSemWise[semesterChoosen])[0]
+    let semesterChoosen = e.target.value.slice(-1);
+    let firstSubjectCode = Object.keys(subjectListSemWise[semesterChoosen])[0];
     setSemester(semesterChoosen);
-    setSubject(firstSubjectCode)
+    setSubject(firstSubjectCode);
   };
 
   const subjectChangeHandler = (e) => {
@@ -53,7 +53,7 @@ const StudyMaterial = () => {
 
     console.log("get fies ", semester, materialType, subject, unit);
     refetch();
-    console.log("searched files data", data)
+    console.log("searched files data", data);
   };
 
   const requestAdminHandler = (e) => {
@@ -156,43 +156,52 @@ const StudyMaterial = () => {
         ) : status === "success" ? (
           <>
             <SubHeading title="Search Results" />
-            { 
-                data.files.length === 0 ? 
-                <div> No files found !</div>
-                :
-                data.files.map((file) => {
-               return (
-               <div
-                key={file._id}
-                className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded"
-              >
-                <div className="flex justify-between">
-                  <p className="font-semibold">
-                    {subjectListSemWise[file.semester][file.subject]}
-                  </p>
-                </div>
-                <hr className="my-2" />
-                <div className="flex p-2">
-                  <div>
-                    { file.type === "videos" ? <FiVideo color="#FBBF24" size="80" /> : <FiFileText color="#FBBF24" size="80" /> }
-                  </div>
-                  <div className="mx-5">
-                    <p>
-                    {file.description}
-                    </p>
-                    <p>
-                      {file.type} | Unit - {file.unit}
-                    </p>
-                    <a href={file.url} target="_blank" rel="noreferrer" >
-                    <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded">
-                      { file.type === "videos" ? <FiVideo/> : <FiDownload /> }
-                      <button className="mx-2">{file.type === "videos" ? 'Watch' : 'Download'}</button>
+            {data.files.length === 0 ? (
+              <div> No files found !</div>
+            ) : (
+              data.files.map((file) => {
+                return (
+                  <div
+                    key={file._id}
+                    className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded"
+                  >
+                    <div className="flex justify-between">
+                      <p className="font-semibold">
+                        {subjectListSemWise[file.semester][file.subject]}
+                      </p>
                     </div>
-                    </a>
+                    <hr className="my-2" />
+                    <div className="flex p-2">
+                      <div>
+                        {file.type === "videos" ? (
+                          <FiVideo color="#FBBF24" size="80" />
+                        ) : (
+                          <FiFileText color="#FBBF24" size="80" />
+                        )}
+                      </div>
+                      <div className="mx-5">
+                        <p>{file.description}</p>
+                        <p>
+                          {file.type} | Unit - {file.unit}
+                        </p>
+                        <a href={file.url} target="_blank" rel="noreferrer">
+                          <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded">
+                            {file.type === "videos" ? (
+                              <FiVideo />
+                            ) : (
+                              <FiDownload />
+                            )}
+                            <button className="mx-2">
+                              {file.type === "videos" ? "Watch" : "Download"}
+                            </button>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>)
-            })}
+                );
+              })
+            )}
           </>
         ) : null}
       </div>

@@ -57,7 +57,9 @@ const Tabs = ({ rollno }) => {
       <div
         key={`${index}+${tab}`}
         onClick={() => toggleViewHandler(index)}
-        className={`${toggleView === index ?'bg-yellow-400 font-semibold' : 'bg-gray-50 ' } text-black cursor-pointer w-max p-1 text-xs rounded-md mr-2`}
+        className={`${
+          toggleView === index ? "bg-yellow-400 font-semibold" : "bg-gray-50 "
+        } text-black cursor-pointer w-max p-1 text-xs rounded-md mr-2`}
       >
         <p>{tab}</p>
       </div>

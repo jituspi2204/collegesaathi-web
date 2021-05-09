@@ -5,7 +5,7 @@ import SubHeading from "../../components/subHeading/SubHeading";
 import { SubjectListContext } from "../../context/subjectListContext";
 
 const Home = ({ user }) => {
-  const subjectListSemWise = useContext(SubjectListContext)
+  const subjectListSemWise = useContext(SubjectListContext);
 
   return (
     <div className="max-w-full">
@@ -34,10 +34,15 @@ const Home = ({ user }) => {
       <SubHeading title="My Files" />
       {user.reads.map((file) => {
         return (
-          <div key={file.name} className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
+          <div
+            key={file.name}
+            className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded"
+          >
             <div className="flex justify-between">
               <p className="font-semibold">
-                {subjectListSemWise[file.semester] ?  subjectListSemWise[file.semester][file.subject] : "Loading..."}
+                {subjectListSemWise[file.semester]
+                  ? subjectListSemWise[file.semester][file.subject]
+                  : "Loading..."}
               </p>
               {/* <div className="w-6 h-6  bg-yellow-400 text-black rounded-full">
                 <p className="text-center font-bold">1</p>
@@ -50,13 +55,14 @@ const Home = ({ user }) => {
               </div>
               <div className="mx-5">
                 <p>{file.subject}</p>
-                <p>{file.type} | Semster - {file.semester} </p>
+                <p>
+                  {file.type} | Semster - {file.semester}{" "}
+                </p>
                 <a href={file.url}>
-                <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded">
-                  <FiDownload />
-                  <div className="mx-2"> Download</div>
-                </div>
-
+                  <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded">
+                    <FiDownload />
+                    <div className="mx-2"> Download</div>
+                  </div>
                 </a>
               </div>
             </div>

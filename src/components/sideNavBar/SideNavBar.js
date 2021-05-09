@@ -9,7 +9,11 @@ const SideNavBar = () => {
         {MenuItems.map((item, index) => {
           return (
             <div key={index}>
-              <NavLink to={item.url} exact={item.url === "/"} activeClassName="text-yellow-500">
+              <NavLink
+                to={item.url}
+                exact={item.url === "/"}
+                activeClassName="text-yellow-500"
+              >
                 <SideBarIcon title={item.title} icon={item.icon} />
               </NavLink>
             </div>
