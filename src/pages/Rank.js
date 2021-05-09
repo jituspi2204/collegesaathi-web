@@ -38,13 +38,13 @@ const Rank = ({ user }) => {
                 onClick={() => changeRankListTypeHandler("college")}
                 className="mr-2  cursor-pointer"
               >
-                College
+                <p className={`${rankType === "college" && 'bg-yellow-400 text-black font-semibold' } px-2  rounded-md`}>College</p>
               </div>
               <div
                 onClick={() => changeRankListTypeHandler("university")}
                 className="cursor-pointer"
               >
-                University
+                <p className={`${rankType === "university" && 'bg-yellow-400 text-black font-semibold' } px-2  rounded-md`}>University</p>
               </div>
             </div>
           </div>
