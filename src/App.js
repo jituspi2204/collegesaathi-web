@@ -15,7 +15,8 @@ function App() {
   const { data, status } = useStudentDetails();
 
   return (
-    <div className="min-h-screen md:flex">
+    // <div className="min-h-screen md:flex">
+    <div className="">
       <SubjectListProvider>
         <Router>
           <SideNavBar />
@@ -24,7 +25,8 @@ function App() {
           ) : status === "error" ? (
             <p>Error while loading your app !</p>
           ) : (
-            <main className="p-10 lg:mx-36 w-screen">
+            // <main className="p-10 lg:mx-36 w-screen">
+            <main className="mt-24 p-4 md:mt-0 md:ml-32 lg:ml-52">
               <Switch>
                 <Route path="/" exact>
                   <Home user={data.user} />

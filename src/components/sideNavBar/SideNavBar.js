@@ -4,8 +4,9 @@ import { NavLink } from "react-router-dom";
 
 const SideNavBar = () => {
   return (
-    <div className="">
-      <nav className="flex flex-row max-w-screen justify-center items-center md:flex-col">
+    <div className="bg-gray-800 fixed top-0 left-0 w-full md:w-32 md:h-screen">
+      <nav className="flex flex-row max-w-screen justify-center items-center md:flex-col md:h-full">
+      {/* <nav className=""> */}
         {MenuItems.map((item, index) => {
           return (
             <div key={index}>
