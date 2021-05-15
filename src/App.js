@@ -8,8 +8,8 @@ import StudyMaterial from "./pages/StudyMaterial";
 import SideNavBar from "./components/sideNavBar/SideNavBar";
 import SubjectListProvider from "./context/subjectListContext";
 import useStudentDetails from "./hooks/useStudentDetails";
-import { logDOM } from "@testing-library/dom";
 import Loading from "./components/loading/Loading";
+import ErrorBoundary from "./components/errorBoundary/ErrorBoundary";
 
 function App() {
   const { data, status } = useStudentDetails();
@@ -26,6 +26,8 @@ function App() {
             <p>Error while loading your app !</p>
           ) : (
             // <main className="p-10 lg:mx-36 w-screen">
+
+    <ErrorBoundary>
             <main className="mt-24 p-4 md:mt-0 md:ml-32 lg:ml-52">
               <Switch>
                 <Route path="/" exact>
@@ -45,6 +47,7 @@ function App() {
                 </Route>
               </Switch>
             </main>
+</ErrorBoundary>
           )}
         </Router>
       </SubjectListProvider>
