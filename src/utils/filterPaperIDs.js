@@ -4,8 +4,8 @@ const validatePaperIDs = /\d{5}/;
 
 // semObj : semester Object
 export default function filterPaperIDs(semObj) {
-  let pprIds = []
-  if( semObj ){
+  let pprIds = [];
+  if (semObj) {
     const keys = Object.keys(semObj).map((key) => key.slice(-5));
     pprIds = keys.filter((key) => validatePaperIDs.test(key));
   }

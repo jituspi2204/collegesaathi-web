@@ -16,10 +16,10 @@ export const getSubjectsListSemWise = (data) => {
 };
 
 export const getCollegeList = (data) => {
-  let collegeList = {}
-  data.colleges.forEach(college => {
-    collegeList[college.id] = college.name
-  })
+  let collegeList = {};
+  data.colleges.forEach((college) => {
+    collegeList[college.id] = college.name;
+  });
 
-  return collegeList
-}
+  return collegeList;
+};

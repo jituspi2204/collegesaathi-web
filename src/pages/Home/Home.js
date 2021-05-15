@@ -5,7 +5,9 @@ import SubHeading from "../../components/subHeading/SubHeading";
 import { SubjectListContext } from "../../context/subjectListContext";
 
 const Home = ({ user }) => {
-  const subjectListSemWise = useContext(SubjectListContext)['subjectListSemWise'];
+  const subjectListSemWise = useContext(SubjectListContext)[
+    "subjectListSemWise"
+  ];
 
   return (
     <div className="max-w-full">

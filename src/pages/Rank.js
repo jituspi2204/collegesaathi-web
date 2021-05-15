@@ -8,8 +8,8 @@ import useRankList from "../hooks/useRankList";
 const Rank = ({ user }) => {
   const [rankType, setRankType] = useState("college");
   const { data, status } = useRankList(user.rollno, rankType);
-  const [rankNumber, setRankNumber] = useState("-1")
-  const collegeList = useContext(SubjectListContext)['collegeList']
+  const [rankNumber, setRankNumber] = useState("-1");
+  const collegeList = useContext(SubjectListContext)["collegeList"];
 
   const changeRankListTypeHandler = (rankListType) => {
     setRankType(rankListType);
@@ -101,7 +101,7 @@ const Rank = ({ user }) => {
                     CGPA - <span className="font-semibold">{student.cgpa}</span>
                   </p>
                 </div>
-                <p>{collegeList[student.rollno.slice(3,6)]}</p>
+                <p>{collegeList[student.rollno.slice(3, 6)]}</p>
               </div>
             );
           })}

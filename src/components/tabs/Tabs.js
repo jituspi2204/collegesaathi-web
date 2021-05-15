@@ -16,7 +16,9 @@ const Tabs = ({ rollno }) => {
   const { data, status, error } = useMarks(rollno);
 
   // using Subject List Context
-  const subjectsListSemWise = useContext(SubjectListContext)['subjectListSemWise'];
+  const subjectsListSemWise = useContext(SubjectListContext)[
+    "subjectListSemWise"
+  ];
 
   const toggleViewHandler = (index) => {
     setToggleView(index);
@@ -29,7 +31,7 @@ const Tabs = ({ rollno }) => {
       )[0];
       let pprIds = filterPaperIDs(semester);
 
-      console.log("USE EFFECT", semesters, toggleView, pprIds)
+      console.log("USE EFFECT", semesters, toggleView, pprIds);
       setSemesters(data.semesters);
       setSemester(semester);
       setPprIds(pprIds);
@@ -74,49 +76,50 @@ const Tabs = ({ rollno }) => {
       <div className="flex mb-2">{tabItemJsx}</div>
 
       <div>
-        { status === "success" && semester ? (
+        {status === "success" && semester ? (
           <>
-        <SubHeading title="Semester Summary" />
-          <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">
-            <p>Obtained / Total </p>
-            <p>
-              {semester.obtained} / {semester.total}
-            </p>
-            <p> SGPA </p>
-            <p> {semester.sgpa} </p>
-            <p> Percentage </p>
-            <p> {semester.percentage} % </p>
-            <p> Total Credits </p>
-            <p> {semester.credit} </p>
-          </div>
-
-        <SubHeading title="Subjects" />
-        {subjects.map((subject) => {
-          return (
-            <div
-              key={subject.pId}
-              className="bg-gray-700 p-5 lg:w-2/3  mb-4 rounded"
-            >
-              <p className="font-bold mb-1">{subject.title}</p>
-              <hr className="mb-3" />
-              <div className="grid grid-cols-2  px-2">
-                <p>Internal</p>
-                <p>{subject.internal}</p>
-                <p>External</p>
-                <p>{subject.external}</p>
-                <p>Total</p>
-                <p>{subject.total}</p>
-                <p>Credits</p>
-                <p>{subject.credit}</p>
-              </div>
+            <SubHeading title="Semester Summary" />
+            <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">
+              <p>Obtained / Total </p>
+              <p>
+                {semester.obtained} / {semester.total}
+              </p>
+              <p> SGPA </p>
+              <p> {semester.sgpa} </p>
+              <p> Percentage </p>
+              <p> {semester.percentage} % </p>
+              <p> Total Credits </p>
+              <p> {semester.credit} </p>
             </div>
-          );
-        })}
-          </>
-        ) : status === "loading" ? (<p>Loading...</p>) 
-        : (<p>No data available</p>) 
-        }
 
+            <SubHeading title="Subjects" />
+            {subjects.map((subject) => {
+              return (
+                <div
+                  key={subject.pId}
+                  className="bg-gray-700 p-5 lg:w-2/3  mb-4 rounded"
+                >
+                  <p className="font-bold mb-1">{subject.title}</p>
+                  <hr className="mb-3" />
+                  <div className="grid grid-cols-2  px-2">
+                    <p>Internal</p>
+                    <p>{subject.internal}</p>
+                    <p>External</p>
+                    <p>{subject.external}</p>
+                    <p>Total</p>
+                    <p>{subject.total}</p>
+                    <p>Credits</p>
+                    <p>{subject.credit}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        ) : status === "loading" ? (
+          <p>Loading...</p>
+        ) : (
+          <p>No data available</p>
+        )}
       </div>
     </div>
   );

@@ -7,12 +7,10 @@ export default function getSubjectsList(
   semester,
   semesterYear
 ) {
-
   if (semester && subjectsListSemWise && pprIds && semesterYear) {
-
-    let semPaperID = pprIds
-    if(semester[pprIds[0]] === undefined) {
-      semPaperID = pprIds.map(pId => '0'+pId)
+    let semPaperID = pprIds;
+    if (semester[pprIds[0]] === undefined) {
+      semPaperID = pprIds.map((pId) => "0" + pId);
     }
 
     return pprIds.map((pId, index) => {
