@@ -7,11 +7,13 @@ import getSubjectsList from "../../utils/getSubjectsList";
 
 const Tabs = ({ rollno }) => {
   const [toggleView, setToggleView] = useState(0);
-  const [semester, setSemester] = useState([]);
+  const [semester, setSemester] = useState(null);
   const [semesters, setSemesters] = useState([]);
-  const { data, status, error } = useMarks(rollno);
   const [pprIds, setPprIds] = useState([]);
   const [subjects, setSubjects] = useState([]);
+
+  // Using react-query to fetch data
+  const { data, status, error } = useMarks(rollno);
 
   // using Subject List Context
   const subjectsListSemWise = useContext(SubjectListContext);
@@ -72,14 +74,13 @@ const Tabs = ({ rollno }) => {
       <div className="flex mb-2">{tabItemJsx}</div>
 
       <div>
-        { semester ? (
+        { status === "success" && semester ? (
           <>
         <SubHeading title="Semester Summary" />
           <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">
             <p>Obtained / Total </p>
             <p>
-              {" "}
-              {semester.obtained} / {semester.total}{" "}
+              {semester.obtained} / {semester.total}
             </p>
             <p> SGPA </p>
             <p> {semester.sgpa} </p>
@@ -112,7 +113,8 @@ const Tabs = ({ rollno }) => {
           );
         })}
           </>
-        ) : <p>No Results Found !</p>
+        ) : status === "loading" ? (<p>Loading...</p>) 
+        : (<p>No data available</p>) 
         }
 
       </div>

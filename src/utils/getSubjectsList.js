@@ -7,12 +7,19 @@ export default function getSubjectsList(
   semester,
   semesterYear
 ) {
+
   if (semester && subjectsListSemWise && pprIds && semesterYear) {
-    return pprIds.map((pId) => {
+
+    let semPaperID = pprIds
+    if(semester[pprIds[0]] === undefined) {
+      semPaperID = pprIds.map(pId => '0'+pId)
+    }
+
+    return pprIds.map((pId, index) => {
       return {
         // slice is to remove last 6 digits which corresponds to PaperId
         title: subjectsListSemWise[semesterYear][pId].slice(0, -6),
-        ...semester[pId],
+        ...semester[semPaperID[index]],
         pId: pId,
       };
     });
