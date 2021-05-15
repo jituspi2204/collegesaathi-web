@@ -11,8 +11,7 @@ const StudyMaterial = () => {
   const [unit, setUnit] = useState("1");
   const [semester, setSemester] = useState("1");
   const [subject, setSubject] = useState("99113");
-  const subjectListSemWise = useContext(SubjectListContext);
-  console.log("Subject List SEm wise ", subjectListSemWise);
+  const subjectListSemWise = useContext(SubjectListContext)['subjectListSemWise'];
 
   const { data, status, refetch } = useFetchFiles(
     semester,

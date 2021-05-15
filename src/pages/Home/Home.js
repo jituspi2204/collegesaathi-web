@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { FiDownload, FiEdit, FiFileText } from "react-icons/fi";
+import { FiDownload, FiFileText } from "react-icons/fi";
 import Header from "../../components/header/Header";
 import SubHeading from "../../components/subHeading/SubHeading";
 import { SubjectListContext } from "../../context/subjectListContext";
 
 const Home = ({ user }) => {
-  const subjectListSemWise = useContext(SubjectListContext);
+  const subjectListSemWise = useContext(SubjectListContext)['subjectListSemWise'];
 
   return (
     <div className="max-w-full">

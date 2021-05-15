@@ -2,12 +2,14 @@ import React, { useContext, useState } from "react";
 import Header from "../components/header/Header";
 import Loading from "../components/loading/Loading";
 import SubHeading from "../components/subHeading/SubHeading";
+import { SubjectListContext } from "../context/subjectListContext";
 import useRankList from "../hooks/useRankList";
 
 const Rank = ({ user }) => {
   const [rankType, setRankType] = useState("college");
   const { data, status } = useRankList(user.rollno, rankType);
   const [rankNumber, setRankNumber] = useState("-1")
+  const collegeList = useContext(SubjectListContext)['collegeList']
 
   const changeRankListTypeHandler = (rankListType) => {
     setRankType(rankListType);
@@ -99,7 +101,7 @@ const Rank = ({ user }) => {
                     CGPA - <span className="font-semibold">{student.cgpa}</span>
                   </p>
                 </div>
-                <p>{student.college}</p>
+                <p>{collegeList[student.rollno.slice(3,6)]}</p>
               </div>
             );
           })}

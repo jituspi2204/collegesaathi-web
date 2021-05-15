@@ -16,7 +16,7 @@ const Tabs = ({ rollno }) => {
   const { data, status, error } = useMarks(rollno);
 
   // using Subject List Context
-  const subjectsListSemWise = useContext(SubjectListContext);
+  const subjectsListSemWise = useContext(SubjectListContext)['subjectListSemWise'];
 
   const toggleViewHandler = (index) => {
     setToggleView(index);

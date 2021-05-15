@@ -3,7 +3,7 @@ import MenuItems from "./MenuItems";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import { AiOutlineAndroid } from "react-icons/ai";
-import { FiEdit, FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 
 const SideNavBar = () => {
   return (

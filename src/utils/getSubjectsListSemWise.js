@@ -1,4 +1,4 @@
-const getSubjectsListSemWise = (data) => {
+export const getSubjectsListSemWise = (data) => {
   const subjectsListSemWise = {};
 
   let k = "";
@@ -15,4 +15,11 @@ const getSubjectsListSemWise = (data) => {
   return subjectsListSemWise;
 };
 
-export default getSubjectsListSemWise;
+export const getCollegeList = (data) => {
+  let collegeList = {}
+  data.colleges.forEach(college => {
+    collegeList[college.id] = college.name
+  })
+
+  return collegeList
+}
