@@ -6,13 +6,14 @@ import useRankList from "../hooks/useRankList";
 
 const Rank = ({ user }) => {
   const [rankType, setRankType] = useState("college");
-  const { data, status } = useRankList(rankType);
+  const { data, status } = useRankList(user.rollno, rankType);
+  const [rankNumber, setRankNumber] = useState("-1")
 
   const changeRankListTypeHandler = (rankListType) => {
     setRankType(rankListType);
   };
 
-  const funct = () => {
+  const getRankNumber = () => {
     if (data && data.students) {
       const foundStudent = data.students.find(
         (student) => student.rollno === user.rollno
@@ -65,7 +66,7 @@ const Rank = ({ user }) => {
           </div>
           <div className="bg-green-700 p-5 lg:w-3/4  mb-8 rounded">
             <p className="font-semibold mb-2">
-              {funct()}. {user.name} ({user.rollno}){" "}
+              {getRankNumber()}. {user.name} ({user.rollno}){" "}
             </p>
             <div className="grid grid-cols-2 ">
               <p>
@@ -95,7 +96,7 @@ const Rank = ({ user }) => {
                     <span className="font-semibold">{student.percentage}</span>
                   </p>
                   <p>
-                    CGPA - <span className="font-semibold">{student.sgpa}</span>
+                    CGPA - <span className="font-semibold">{student.cgpa}</span>
                   </p>
                 </div>
                 <p>{student.college}</p>
