@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
 
 export const Login = () => {
@@ -58,7 +59,9 @@ export const Login = () => {
           </div>
           <p className="mt-2 text-xs">
             Not have an account?{" "}
+            <Link to="/register">
             <span className="font-bold cursor-pointer">Register here</span>
+            </Link>
           </p>
         </div>
       </section>
