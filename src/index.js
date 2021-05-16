@@ -8,8 +8,8 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   "https://quiet-scrubland-22380.herokuapp.com/api/v1/student";
-axios.defaults.headers["Authorization"] =
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFua2l0dmFzaGlzaHQxMkBnbWFpbC5jb20iLCJfaWQiOiI2MDc0MGVkMjVjZmJiMTRmODhmNDQyMjUiLCJpYXQiOjE2MTk1MzIzNjcsImV4cCI6MTY1MDYzNjM2N30.8S-lKWf7DhvqKjT8HLoE99cGSWie_UYqEcIZs20yvyQ";
+// axios.defaults.headers["Authorization"] =
+//   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFua2l0dmFzaGlzaHQxMkBnbWFpbC5jb20iLCJfaWQiOiI2MDc0MGVkMjVjZmJiMTRmODhmNDQyMjUiLCJpYXQiOjE2MTk1MzIzNjcsImV4cCI6MTY1MDYzNjM2N30.8S-lKWf7DhvqKjT8HLoE99cGSWie_UYqEcIZs20yvyQ";
 
 const queryClient = new QueryClient();
 ReactDOM.render(

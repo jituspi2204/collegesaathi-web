@@ -1,15 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Loading from "../components/loading/Loading";
 import SubHeading from "../components/subHeading/SubHeading";
 import { SubjectListContext } from "../context/subjectListContext";
+import { UserContext } from "../context/userContext";
 import useRankList from "../hooks/useRankList";
 
-const Rank = ({ user }) => {
+const Rank = () => {
   const [rankType, setRankType] = useState("college");
-  const { data, status } = useRankList(user.rollno, rankType);
+  const [ user, setUser ] = useState({})
+  const [ token, setToken ] = useState('')
   const [rankNumber, setRankNumber] = useState("-1");
+
+
+  // using react-query to fetch rank list
+  const { data, status } = useRankList(user.rollno, rankType, token);
+
+  // using contexts
+  const userDetails = useContext(UserContext)
   const collegeList = useContext(SubjectListContext)["collegeList"];
+
+  useEffect(() => {
+    setUser(userDetails.user)
+    setToken(userDetails.token)
+  }, [userDetails])
 
   const changeRankListTypeHandler = (rankListType) => {
     setRankType(rankListType);
@@ -30,9 +44,9 @@ const Rank = ({ user }) => {
     <div>
       <Header title="Rank List" />
       {status === "loading" ? (
-        <Loading />
+        <Loading loadingText="Fetching Rank list..." />
       ) : status === "error" ? (
-        <p>Error...</p>
+        <p>Oops ! Something went wrong.</p>
       ) : (
         <>
           <div className="flex justify-between lg:w-3/4 ">

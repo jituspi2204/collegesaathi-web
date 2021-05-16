@@ -2,9 +2,20 @@ import React, { useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
+import firebase from "../../firebase_config";
 
 export const Login = () => {
   const [userType, setUserType] = useState("");
+
+  const loginHandler = () => {
+    const auth = firebase.auth();
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+    auth
+      .signInWithPopup(googleProvider)
+      .then((data) => {})
+      .catch((e) => console.log(e.message));
+  };
 
   return (
     <div>
@@ -53,16 +64,19 @@ export const Login = () => {
           </div>
         </div>
         <div className="mt-10 w-64 flex flex-col items-center">
-          <div className="bg-yellow-400 rounded flex flex-row items-center cursor-pointer">
+          <div
+            onClick={loginHandler}
+            className="bg-yellow-400 rounded flex flex-row items-center cursor-pointer"
+          >
             <AiFillGoogleCircle color="black" size="30px" />
             <div className=" px-3 py-2 text-black"> Login with Google</div>
           </div>
-          <p className="mt-2 text-xs">
+          {/* <p className="mt-2 text-xs">
             Not have an account?{" "}
             <Link to="/register">
             <span className="font-bold cursor-pointer">Register here</span>
             </Link>
-          </p>
+          </p> */}
         </div>
       </section>
     </div>

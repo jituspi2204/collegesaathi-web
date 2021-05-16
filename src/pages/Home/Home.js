@@ -1,13 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FiDownload, FiFileText } from "react-icons/fi";
 import Header from "../../components/header/Header";
 import SubHeading from "../../components/subHeading/SubHeading";
 import { SubjectListContext } from "../../context/subjectListContext";
+import { UserContext } from "../../context/userContext";
+import firebase from "../../firebase_config";
 
-const Home = ({ user }) => {
+const Home = () => {
+  const [user, setUser] = useState({ reads: [] });
+
+  // Using Contexts
   const subjectListSemWise = useContext(SubjectListContext)[
     "subjectListSemWise"
   ];
+  const userDetails = useContext(UserContext);
+
+  useEffect(() => {
+    // console.log("user photo url ", firebase.auth().currentUser.photoURL);
+    setUser(userDetails.user);
+  }, [userDetails]);
 
   return (
     <div className="max-w-full">

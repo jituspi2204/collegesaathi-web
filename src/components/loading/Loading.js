@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../../assets/lotties/book.json";
 
-const Loading = ({ location }) => {
+const Loading = ({ loadingText }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -16,7 +16,9 @@ const Loading = ({ location }) => {
     <div className={`flex items-center justify-center flex-col `}>
       <Lottie options={defaultOptions} height={300} width={300} />
 
-      <p className="text-4xl animate-pulse font-bold">Loading . . . </p>
+      <p className="text-3xl animate-pulse font-semibold">
+        {loadingText ? loadingText : "Loading..."}
+      </p>
     </div>
   );
 };

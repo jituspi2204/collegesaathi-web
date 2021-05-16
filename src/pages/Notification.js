@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import SubHeading from "../components/subHeading/SubHeading";
 import moment from "moment";
+import { UserContext } from "../context/userContext";
 
-const Notification = ({ notifications }) => {
+const Notification = () => {
   /* TODO
    * Add refresh, delete all notification button
    */
+
+  const [ notifications, setNotifications ] = useState([])
+
+  const user = useContext(UserContext)[
+    'user'
+  ]
+
+  useEffect(() => {
+    setNotifications(user.notifications)
+  }, [user])
+
 
   return (
     <div>

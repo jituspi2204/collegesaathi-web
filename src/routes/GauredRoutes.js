@@ -1,19 +1,24 @@
-import React from 'react'
-import { Route, Redirect} from 'react-router-dom'
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
-const ReDirect = () => {
-    return <Redirect to="/login" />
-}
+const ReDirectLogin = () => {
+  return <Redirect to="/login" />;
+};
 
-const GuardedRoute = ({path, children, valid, exact}) => {
-    return (
-        <Route
-            path={path}
-            exact={exact}
-        >    
-        {valid ? children : ReDirect}
-        </Route>
-    )
-}
+const ReDirectRegister = () => {
+  return <Redirect to="/register" />;
+};
 
-export default GuardedRoute
+const GuardedRoute = ({ path, children, valid, exact }) => {
+  return (
+    <Route path={path} exact={exact}>
+      {valid.firebaseUser && valid.user
+        ? children
+        : valid.firebaseUser
+        ? ReDirectRegister
+        : ReDirectLogin}
+    </Route>
+  );
+};
+
+export default GuardedRoute;

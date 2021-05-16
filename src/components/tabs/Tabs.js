@@ -5,7 +5,7 @@ import filterPaperIDs from "../../utils/filterPaperIDs";
 import { SubjectListContext } from "../../context/subjectListContext";
 import getSubjectsList from "../../utils/getSubjectsList";
 
-const Tabs = ({ rollno }) => {
+const Tabs = ({ rollno, token }) => {
   const [toggleView, setToggleView] = useState(0);
   const [semester, setSemester] = useState(null);
   const [semesters, setSemesters] = useState([]);
@@ -13,12 +13,13 @@ const Tabs = ({ rollno }) => {
   const [subjects, setSubjects] = useState([]);
 
   // Using react-query to fetch data
-  const { data, status, error } = useMarks(rollno);
+  const { data, status, error } = useMarks(rollno, token);
 
   // using Subject List Context
   const subjectsListSemWise = useContext(SubjectListContext)[
     "subjectListSemWise"
   ];
+
 
   const toggleViewHandler = (index) => {
     setToggleView(index);
@@ -31,7 +32,6 @@ const Tabs = ({ rollno }) => {
       )[0];
       let pprIds = filterPaperIDs(semester);
 
-      console.log("USE EFFECT", semesters, toggleView, pprIds);
       setSemesters(data.semesters);
       setSemester(semester);
       setPprIds(pprIds);
@@ -43,8 +43,6 @@ const Tabs = ({ rollno }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, data, toggleView]);
 
-  console.log("Subjects ", subjects);
-  console.log("ppr id", pprIds);
 
   const tabItems = [
     "Sem 1",
@@ -76,7 +74,7 @@ const Tabs = ({ rollno }) => {
       <div className="flex mb-2">{tabItemJsx}</div>
 
       <div>
-        {status === "success" && semester ? (
+        {error ? <p>Oops ! Something went wrong.</p> : status === "success" && semester ? (
           <>
             <SubHeading title="Semester Summary" />
             <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">

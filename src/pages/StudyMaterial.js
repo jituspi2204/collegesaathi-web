@@ -1,38 +1,47 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import SubHeading from "../components/subHeading/SubHeading";
 import { SubjectListContext } from "../context/subjectListContext";
 import useFetchFiles from "../hooks/useFetchFiles";
 import { FiFileText, FiDownload, FiVideo } from "react-icons/fi";
 import Loading from "../components/loading/Loading";
+import { UserContext } from "../context/userContext";
 
 const StudyMaterial = () => {
-  const [materialType, setMaterialType] = useState("notes");
-  const [unit, setUnit] = useState("1");
+  // const [materialType, setMaterialType] = useState("notes");
+  // const [unit, setUnit] = useState("1");
   const [semester, setSemester] = useState("1");
   const [subject, setSubject] = useState("99113");
+  const [ token, setToken ] = useState('')
+
+  // using contexts
   const subjectListSemWise = useContext(SubjectListContext)[
     "subjectListSemWise"
   ];
+  const userDetails = useContext(UserContext)
 
+  // using react-query to fetch files
   const { data, status, refetch } = useFetchFiles(
     semester,
-    materialType,
     subject,
-    unit
+    token
   );
 
-  const materialTypeChangeHandler = (e) => {
-    let material = "";
+  useEffect(() => {
+    setToken(userDetails.token)
+  }, [userDetails])
 
-    if (e.target.value === "Lab Files") material = "labfiles";
-    else if (e.target.value === "Assignments") material = "assignments";
-    else if (e.target.value === "Question Papers") material = "papers";
-    else if (e.target.value === "Videos") material = "videos";
-    else material = "notes";
+  // const materialTypeChangeHandler = (e) => {
+  //   let material = "";
 
-    setMaterialType(material);
-  };
+  //   if (e.target.value === "Lab Files") material = "labfiles";
+  //   else if (e.target.value === "Assignments") material = "assignments";
+  //   else if (e.target.value === "Question Papers") material = "papers";
+  //   else if (e.target.value === "Videos") material = "videos";
+  //   else material = "notes";
+
+  //   setMaterialType(material);
+  // };
 
   const semesterChangeHandler = (e) => {
     let semesterChoosen = e.target.value.slice(-1);
@@ -45,16 +54,13 @@ const StudyMaterial = () => {
     setSubject(e.target.value.slice(-5));
   };
 
-  const unitChangeHandler = (e) => {
-    setUnit(e.target.value.slice(-1));
-  };
+  // const unitChangeHandler = (e) => {
+  //   setUnit(e.target.value.slice(-1));
+  // };
 
   const getFilesHandler = (e) => {
     e.preventDefault();
-
-    console.log("get fies ", semester, materialType, subject, unit);
     refetch();
-    console.log("searched files data", data);
   };
 
   const requestAdminHandler = (e) => {
@@ -67,7 +73,7 @@ const StudyMaterial = () => {
       <SubHeading title="Search Study Material" />
 
       <form className="grid gap-4 md:gap-10 grid-cols-4 bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label htmlFor="materialType" className="text-xs">
             Material Type
           </label>
@@ -82,7 +88,7 @@ const StudyMaterial = () => {
             <option>Question Papers</option>
             <option>Videos</option>
           </select>
-        </div>
+        </div> */}
         <div className="flex flex-col">
           <label htmlFor="semester" className="text-xs">
             Semester
@@ -119,8 +125,8 @@ const StudyMaterial = () => {
               <option>Choose Subject</option>
             )}
           </select>
-        </div>{" "}
-        <div className="flex flex-col">
+        </div>
+        {/* <div className="flex flex-col">
           <label htmlFor="unit" className="text-xs">
             Unit
           </label>
@@ -134,7 +140,7 @@ const StudyMaterial = () => {
             <option>Unit 3</option>
             <option>Unit 4</option>
           </select>
-        </div>
+        </div> */}
         <button
           onClick={(e) => getFilesHandler(e)}
           className="bg-yellow-400 text-black font-semibold rounded p-2 my-4 col-span-2"
@@ -151,7 +157,7 @@ const StudyMaterial = () => {
 
       <div>
         {status === "loading" ? (
-          <Loading />
+          <Loading loadingText="Fetching Files..."/>
         ) : status === "error" ? (
           <p>Encountered an error ! Please try again</p>
         ) : status === "success" ? (

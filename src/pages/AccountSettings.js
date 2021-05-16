@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import SubHeading from "../components/subHeading/SubHeading";
 import Tabs from "../components/tabs/Tabs";
+import { UserContext } from "../context/userContext";
 
-const AccountSettings = ({ user }) => {
+const AccountSettings = () => {
+  const [user, setUser ] = useState({})
+  const [token, setToken] = useState('')
+
+  const userDetails = useContext(UserContext)
+
+  useEffect(() => {
+    setUser(userDetails.user)
+    setToken(userDetails.token)
+  }, [userDetails])
+
+  console.log("Account setting token ", token)
   return (
     <div>
       <Header title="Your Account" />
@@ -27,7 +39,7 @@ const AccountSettings = ({ user }) => {
         <p>College</p>
         <p className="font-semibold">{user.college}</p>
       </div>
-      <Tabs rollno={user.rollno} />
+      <Tabs rollno={user.rollno} token={token} />
     </div>
   );
 };
