@@ -71,12 +71,6 @@ export const Login = () => {
             <AiFillGoogleCircle color="black" size="30px" />
             <div className=" px-3 py-2 text-black"> Login with Google</div>
           </div>
-          {/* <p className="mt-2 text-xs">
-            Not have an account?{" "}
-            <Link to="/register">
-            <span className="font-bold cursor-pointer">Register here</span>
-            </Link>
-          </p> */}
         </div>
       </section>
     </div>
