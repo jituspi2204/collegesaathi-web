@@ -5,7 +5,7 @@ import filterPaperIDs from "../../utils/filterPaperIDs";
 import { SubjectListContext } from "../../context/subjectListContext";
 import getSubjectsList from "../../utils/getSubjectsList";
 
-const Tabs = ({ rollno, token }) => {
+const Tabs = ({ rollno }) => {
   const [toggleView, setToggleView] = useState(0);
   const [semester, setSemester] = useState(null);
   const [semesters, setSemesters] = useState([]);
@@ -13,7 +13,7 @@ const Tabs = ({ rollno, token }) => {
   const [subjects, setSubjects] = useState([]);
 
   // Using react-query to fetch data
-  const { data, status, error } = useMarks(rollno, token);
+  const { data, status, error } = useMarks(rollno, true);
 
   // using Subject List Context
   const subjectsListSemWise = useContext(SubjectListContext)[

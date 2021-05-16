@@ -5,9 +5,6 @@ import moment from "moment";
 import { UserContext } from "../context/userContext";
 
 const Notification = () => {
-  /* TODO
-   * Add refresh, delete all notification button
-   */
 
   const [ notifications, setNotifications ] = useState([])
 

@@ -3,9 +3,8 @@ import AccountSettings from "./AccountSettings";
 import Notification from "./Notification";
 import Home from "./Home/Home";
 import Rank from "./Rank";
-import StudyMaterial from "./StudyMaterial";
-import { Route, Switch, useHistory } from "react-router-dom";
-import useStudentDetails from "../hooks/useStudentDetails";
+import Search from "./Search";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Loading from "../components/loading/Loading";
 import GuardedRoute from "../routes/GauredRoutes";
 import Login from "./login/Login";
@@ -16,6 +15,7 @@ const Main = (props) => {
   const [isRegistered, setIsRegistered] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const history = useHistory();
+  const location = useLocation();
   const [user, setUser] = useState({});
 
   // using userContext
@@ -29,7 +29,8 @@ const Main = (props) => {
         // If firebase user is present ( ie. user is present in firbase db )
         // and user is present in our db too then redirect to home page
         setIsLoggedIn(true);
-        history.push("/");
+        if(location.pathname === "/login") history.push("/") 
+        else history.push(location.pathname); 
       } else {
         // If firebase user is present but he/she not present in our db then
         // we'll redirect to register page
@@ -66,7 +67,7 @@ const Main = (props) => {
         </GuardedRoute>
 
         <GuardedRoute path="/search" exact={true} valid={userDetails}>
-          <StudyMaterial />
+          <Search />
         </GuardedRoute>
 
         <Route path="/login" component={Login} exact />

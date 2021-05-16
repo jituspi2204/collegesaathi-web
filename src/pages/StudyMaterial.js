@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Header from "../components/header/Header";
 import SubHeading from "../components/subHeading/SubHeading";
 import { SubjectListContext } from "../context/subjectListContext";
 import useFetchFiles from "../hooks/useFetchFiles";
@@ -69,9 +68,6 @@ const StudyMaterial = () => {
   };
   return (
     <div>
-      <Header title="Search" />
-      <SubHeading title="Search Study Material" />
-
       <form className="grid gap-4 md:gap-10 grid-cols-1 md:grid-cols-2 bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
         {/* <div className="flex flex-col">
           <label htmlFor="materialType" className="text-xs">

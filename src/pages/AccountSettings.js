@@ -6,16 +6,13 @@ import { UserContext } from "../context/userContext";
 
 const AccountSettings = () => {
   const [user, setUser ] = useState({})
-  const [token, setToken] = useState('')
 
   const userDetails = useContext(UserContext)
 
   useEffect(() => {
     setUser(userDetails.user)
-    setToken(userDetails.token)
   }, [userDetails])
 
-  console.log("Account setting token ", token)
   return (
     <div>
       <Header title="Your Account" />
@@ -39,7 +36,7 @@ const AccountSettings = () => {
         <p>College</p>
         <p className="font-semibold">{user.college}</p>
       </div>
-      <Tabs rollno={user.rollno} token={token} />
+      { user.rollno && <Tabs rollno={user.rollno}/>}
     </div>
   );
 };
