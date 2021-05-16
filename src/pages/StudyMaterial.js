@@ -72,7 +72,7 @@ const StudyMaterial = () => {
       <Header title="Search" />
       <SubHeading title="Search Study Material" />
 
-      <form className="grid gap-4 md:gap-10 grid-cols-4 bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
+      <form className="grid gap-4 md:gap-10 grid-cols-1 md:grid-cols-2 bg-gray-700 p-5 mb-8 lg:w-2/3 rounded">
         {/* <div className="flex flex-col">
           <label htmlFor="materialType" className="text-xs">
             Material Type
@@ -96,7 +96,7 @@ const StudyMaterial = () => {
           <select
             id="semester"
             onChange={(e) => semesterChangeHandler(e)}
-            className="w-20 my-2 text-white rounded bg-gray-500"
+            className=" my-2 col-span-2 text-white rounded bg-gray-500"
           >
             <option>Sem - 1</option>
             <option>Sem - 2</option>
@@ -115,7 +115,7 @@ const StudyMaterial = () => {
           <select
             id="subject"
             onChange={(e) => subjectChangeHandler(e)}
-            className="w-20 my-2 text-white rounded bg-gray-500"
+            className="col-span-2 my-2 text-white rounded bg-gray-500"
           >
             {subjectListSemWise[semester] ? (
               Object.values(subjectListSemWise[semester]).map((sub) => {
@@ -143,13 +143,13 @@ const StudyMaterial = () => {
         </div> */}
         <button
           onClick={(e) => getFilesHandler(e)}
-          className="bg-yellow-400 text-black font-semibold rounded p-2 my-4 col-span-2"
+          className="bg-yellow-400 text-black font-semibold rounded p-2 my-4 "
         >
           Search
         </button>
         <button
           onClick={(e) => requestAdminHandler(e)}
-          className="bg-green-300 text-black font-semibold rounded p-2 my-4 col-span-2"
+          className="bg-green-300 text-black font-semibold rounded p-2 my-4 "
         >
           Request Admin
         </button>
