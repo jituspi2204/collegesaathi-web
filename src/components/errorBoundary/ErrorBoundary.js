@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import ERROR from '../../assets/images/error1.svg'
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -14,11 +14,14 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <p>Something went Wrong !</p>
-          <p>
+        <div className="w-screen h-screen flex flex-col items-center justify-center">
+          <div className="w-64 lg:w-1/2">
+            <img src={ERROR} alt="error" />
+          </div>
+          <p className="text-lg font-semibold mt-4">Something went Wrong !</p>
+          <p className="text-center">
             Try Refreshing the site again. If that doesn't work, you can inform
-            us @ <code>collegesaathi-india@gmail.com</code>{" "}
+            us @ <code className="bg-gray-600 p-1 rounded">collegesaathi-india@gmail.com</code>
           </p>
         </div>
       );
