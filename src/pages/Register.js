@@ -19,10 +19,11 @@ const Register = (props) => {
       setEmail(firebase.auth().currentUser.email);
   }, []);
   useEffect(() => {
-    changeError('');
-  },[email,rollno,oldRollno])
+    changeError("");
+  }, [email, rollno, oldRollno]);
 
   const loginHandler = () => {
+    localStorage.removeItem("token_collegesaathi");
     firebase.auth().signOut();
   };
 
@@ -99,9 +100,9 @@ const Register = (props) => {
                 className="text-black text-sm lg:w-72 md:w-64"
               />
             </div>
-          {error ?  <p className="text-xs mb-4 text-red-500 font-semibold">
-             {error}
-            </p> : null}
+            {error ? (
+              <p className="text-xs mb-4 text-red-500 font-semibold">{error}</p>
+            ) : null}
             <p className="text-xs mb-4">
               **Old Roll Number is only for Upgraded Students
             </p>
