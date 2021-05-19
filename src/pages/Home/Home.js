@@ -40,7 +40,8 @@ const Home = () => {
 
   // console.log("map", subjectListSemWise);
   let subjectBlock = user.mySubjects.map((subject, index) => {
-    let subjectName = subjectListSemWise[user.currentSemester][subject].split(
+    // console.log(subjectListSemWise[user.currentSemester]);
+    let subjectName = subjectListSemWise[user.currentSemester][parseInt(subject)].split(
       "-"
     )[0];
     return (

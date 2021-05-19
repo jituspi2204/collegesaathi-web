@@ -68,7 +68,7 @@ const Search = () => {
           <SubHeading
             title={
               subjectListSemWise[user.currentSemester]
-                ? subjectListSemWise[user.currentSemester][parmas.subject]
+                ? subjectListSemWise[user.currentSemester][parseInt(parmas.subject)]
                 : ""
             }
           />
