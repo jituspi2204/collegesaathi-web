@@ -7,7 +7,7 @@ import Main from "./pages/Main";
 import firebase from "./firebase_config";
 import UserProvider from "./context/userContext";
 import Loading from "./components/loading/Loading";
-
+import { ToastContainer } from "react-toastify";
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(null);
   const [appLoading, setAppLoading] = useState(true);
@@ -25,6 +25,18 @@ function App() {
     <Loading loadingText="Loading Application..." />
   ) : (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        rtl={false}
+        // pauseOnFocusLoss
+        draggable={false}
+        // pauseOnHover
+        closeButton={<></>}
+        // className="w-full h-auto bg-yellow-400 text-center z-50 md:w-1/2 md:fixed md:left-1/4 rounded mt-4 p-4"
+      />
       <UserProvider firebaseUser={firebaseUser}>
         <Router>
           <SideNavBar />

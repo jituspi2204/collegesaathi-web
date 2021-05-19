@@ -22,11 +22,11 @@ const UserProvider = ({ firebaseUser, children }) => {
   }, [firebaseUser]);
 
   const getUserDetailsHandler = async (token) => {
-    console.log("Inside getUserDetailsHandler => UserContext");
     const data = await userDetail(token);
     if (data) {
       // yes
       // save user data to context api
+      // console.log("Inside getUserDetailsHandler => UserContext",token);
       setAuth({ user: data.user, token });
       setContextLoading(false);
     } else {
@@ -34,7 +34,7 @@ const UserProvider = ({ firebaseUser, children }) => {
     }
   };
   const verifyUserHandler = async () => {
-    console.log("Inside VerifyUserHandler => UserContext");
+    // console.log("Inside VerifyUserHandler => UserContext");
     setContextLoading(true);
     const token = localStorage.getItem("token_collegesaathi");
     // take token from local strograge
@@ -46,11 +46,11 @@ const UserProvider = ({ firebaseUser, children }) => {
   };
 
   const loginHandler = async () => {
-    console.log("Inside loginHandler => UserContext");
+    // console.log("Inside loginHandler => UserContext");
 
     let { uid, email } = firebase.auth().currentUser;
     const data = await loginPost(email, uid);
-    console.log("loginHandler", data);
+    // console.log("loginHandler", data);
     if (data) {
       // yes
       let token = "Bearer " + data.token;

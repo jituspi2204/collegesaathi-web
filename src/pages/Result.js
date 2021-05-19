@@ -18,13 +18,13 @@ const Result = (props) => {
     }, [rollno])
 
     useEffect(() => {
-        console.log("Calling USEEffect")
+        // console.log("Calling USEEffect")
         if( props.load ) setEnable(false)
     }, [props])
 
 
-    console.log("Roll no", rollno)
-    console.log("data =>", data)
+    // console.log("Roll no", rollno)
+    // console.log("data =>", data)
 
     return (
         <div className="">
@@ -44,7 +44,7 @@ const Result = (props) => {
       <SubHeading title="Basic Details" />
       <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-8 rounded">
         <p>Name</p>
-        <p className="font-semibold">{data.user.name}</p>
+        <p className="font-medium">{data.user.name}</p>
         <p>Roll Number</p>
         <p className="font-semibold">{data.user.rollno}</p>
         <p>Course</p>

@@ -10,7 +10,7 @@ const getMarksForSemesters = async (rollno ) => {
 };
 
 export default function useMarks(rollno, enable) {
-  console.log("Enabled is =>  ", enable)
+  // console.log("Enabled is =>  ", enable)
   return useQuery(["marksForSemesters", rollno], () => getMarksForSemesters(rollno), {
     refetchOnWindowFocus: false,
     enabled: enable 

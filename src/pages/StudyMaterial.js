@@ -5,6 +5,7 @@ import useFetchFiles from "../hooks/useFetchFiles";
 import { FiFileText, FiDownload, FiVideo } from "react-icons/fi";
 import Loading from "../components/loading/Loading";
 import { UserContext } from "../context/userContext";
+import { AiFillYoutube } from "react-icons/ai";
 
 const StudyMaterial = () => {
   // const [materialType, setMaterialType] = useState("notes");
@@ -64,7 +65,7 @@ const StudyMaterial = () => {
 
   const requestAdminHandler = (e) => {
     e.preventDefault();
-    console.log(" TODO : Request Admin");
+    // console.log(" TODO : Request Admin");
   };
   return (
     <div>
@@ -92,7 +93,7 @@ const StudyMaterial = () => {
           <select
             id="semester"
             onChange={(e) => semesterChangeHandler(e)}
-            className=" my-2 col-span-2 text-white rounded bg-gray-500"
+            className=" my-2 col-span-2 text-white rounded bg-gray-500 p-1"
           >
             <option>Sem - 1</option>
             <option>Sem - 2</option>
@@ -111,7 +112,7 @@ const StudyMaterial = () => {
           <select
             id="subject"
             onChange={(e) => subjectChangeHandler(e)}
-            className="col-span-2 my-2 text-white rounded bg-gray-500"
+            className="col-span-2 my-2 text-white rounded bg-gray-500 p-1"
           >
             {subjectListSemWise[semester] ? (
               Object.values(subjectListSemWise[semester]).map((sub) => {
@@ -166,7 +167,7 @@ const StudyMaterial = () => {
                 return (
                   <div
                     key={file._id}
-                    className="bg-gray-700 p-5 mb-8 lg:w-2/3 rounded"
+                    className="bg-gray-700 p-2 mb-2 lg:w-2/3 rounded"
                   >
                     <div className="flex justify-between">
                       <p className="font-semibold">
@@ -177,20 +178,20 @@ const StudyMaterial = () => {
                     <div className="flex p-2">
                       <div>
                         {file.type === "videos" ? (
-                          <FiVideo color="#FBBF24" size="80" />
+                          <AiFillYoutube color="#FBBF24" size="80" />
                         ) : (
                           <FiFileText color="#FBBF24" size="80" />
                         )}
                       </div>
-                      <div className="mx-5">
-                        <p>{file.description}</p>
+                      <div className="mx-3">
+                        <p className="text-sm">{file.description}</p>
                         <p>
                           {file.type} | Unit - {file.unit}
                         </p>
                         <a href={file.url} target="_blank" rel="noreferrer">
-                          <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded">
+                          <div className="flex w-max cursor-pointer bg-yellow-400 font-semibold text-black p-1 rounded flex-row justify-center items-center">
                             {file.type === "videos" ? (
-                              <FiVideo />
+                              <AiFillYoutube />
                             ) : (
                               <FiDownload />
                             )}

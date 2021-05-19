@@ -13,10 +13,27 @@ module.exports = {
       blue: colors.blue,
       red: colors.red,
     },
+    minHeight: {
+      0: "0",
+      "1/4": "25%",
+      "1/2": "50%",
+      "3/4": "75%",
+      full: "100%",
+      fix: "10rem",
+      "100px" : "100px"
+    },
+
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        "3s": "33%",
+        "2s": "49%",
+        "4s": "24%",
+        "5s": "19%",
+      },
+    },
   },
   variants: {
     extend: {

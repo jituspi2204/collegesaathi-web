@@ -26,15 +26,15 @@ const Notification = () => {
         return (
           <div
             key={notification._id}
-            className="bg-gray-600 p-5 lg:w-3/4  mb-4 rounded"
+            className="bg-gray-600 p-2 lg:w-3/4  mb-4 rounded"
           >
             <p className="font-semibold mb-2">{notification.title}</p>
-            <p>{notification.message}</p>
+            <p className="text-sm">{notification.message}</p>
             <div className="grid grid-cols-2 gap-12 mt-3">
               <p>
-                By : <span className="font-semibold">{notification.by}</span>
+                By : <span className="font-normal text-sm">{notification.by}</span>
               </p>
-              <p>
+              <p className="text-yellow-400 text-xs">
                 {moment(notification.time).format("MMMM Do YYYY, h:mm:ss a")}
               </p>
             </div>

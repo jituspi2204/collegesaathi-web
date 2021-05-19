@@ -8,8 +8,13 @@ import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Loading from "../components/loading/Loading";
 import GuardedRoute from "../routes/GauredRoutes";
 import Login from "./login/Login";
+import Settings from "./Settings";
 import Register from "./Register";
 import { UserContext } from "../context/userContext";
+import Development from './Development'
+import FilesList from './FilesList'
+import LOGO from "../assets/images/logo.png";
+import APK_BUTTON from "../assets/images/apk_button.png";
 
 const Main = (props) => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -29,8 +34,10 @@ const Main = (props) => {
         // If firebase user is present ( ie. user is present in firbase db )
         // and user is present in our db too then redirect to home page
         setIsLoggedIn(true);
-        if(location.pathname === "/login") history.push("/") 
-        else history.push(location.pathname); 
+        if (location.pathname === "/login") history.push("/development");
+        else if (location.pathname === '/') history.push('/development');
+        else history.push(location.pathname);
+
       } else {
         // If firebase user is present but he/she not present in our db then
         // we'll redirect to register page
@@ -48,18 +55,29 @@ const Main = (props) => {
   }, [userDetails]);
 
   return (
-    <main className="mt-24 p-4 md:mt-0 md:ml-32 lg:ml-52">
+    <main className="mt-2 p-2 md:mt-0 md:ml-32 lg:ml-52 sm:mg:24 pb-12 md:bp-2">
+      <div className="fixed top-4 right-4 w-12 md:left-4">
+        <img src={LOGO} className="w-full" />
+        {/* <img src={APK} className="w-full" /> */}
+      </div>
       <Switch>
         <GuardedRoute path="/" exact={true} valid={userDetails}>
           <Home />
         </GuardedRoute>
+        <GuardedRoute
+          path="/my-files/:subject"
+          exact={true}
+          valid={userDetails}
+        >
+          <FilesList />
+        </GuardedRoute>
 
         <GuardedRoute path="/notifications" exact={true} valid={userDetails}>
-          <Notification/>
+          <Notification />
         </GuardedRoute>
 
         <GuardedRoute path="/account" exact={true} valid={userDetails}>
-          <AccountSettings  />
+          <AccountSettings />
         </GuardedRoute>
 
         <GuardedRoute path="/rank-list" exact={true} valid={userDetails}>
@@ -69,9 +87,13 @@ const Main = (props) => {
         <GuardedRoute path="/search" exact={true} valid={userDetails}>
           <Search />
         </GuardedRoute>
+        <GuardedRoute path="/settings" exact={true} valid={userDetails}>
+          <Settings />
+        </GuardedRoute>
 
         <Route path="/login" component={Login} exact />
         <Route path="/register" component={Register} exact />
+        <Route path="/development" component={Development} exact />
       </Switch>
     </main>
   );

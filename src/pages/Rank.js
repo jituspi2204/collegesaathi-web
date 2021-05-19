@@ -8,22 +8,21 @@ import useRankList from "../hooks/useRankList";
 
 const Rank = () => {
   const [rankType, setRankType] = useState("college");
-  const [ user, setUser ] = useState({})
-  const [ token, setToken ] = useState('')
+  const [user, setUser] = useState({});
+  const [token, setToken] = useState("");
   const [rankNumber, setRankNumber] = useState("-1");
-
 
   // using react-query to fetch rank list
   const { data, status } = useRankList(user.rollno, rankType, token);
 
   // using contexts
-  const userDetails = useContext(UserContext)
+  const userDetails = useContext(UserContext);
   const collegeList = useContext(SubjectListContext)["collegeList"];
 
   useEffect(() => {
-    setUser(userDetails.user)
-    setToken(userDetails.token)
-  }, [userDetails])
+    setUser(userDetails.user);
+    setToken(userDetails.token);
+  }, [userDetails]);
 
   const changeRankListTypeHandler = (rankListType) => {
     setRankType(rankListType);
@@ -103,19 +102,24 @@ const Rank = () => {
                 key={student._id}
                 className="bg-gray-600 p-5 lg:w-3/4  mb-4 rounded"
               >
-                <p className="font-semibold mb-2">
+                <p className="font-medium mb-2 text-sm">
                   {index + 1}. {student.name} ({student.rollno}){" "}
                 </p>
-                <div className="grid grid-cols-2">
-                  <p>
+                <div className="flex flex-row justify-between items-center">
+                  <p className="font-normal text-xs">
                     Percentage -{" "}
-                    <span className="font-semibold">{student.percentage}</span>
+                    <span className="font-normal text-sm">
+                      {student.percentage}
+                    </span>
                   </p>
-                  <p>
-                    CGPA - <span className="font-semibold">{student.cgpa}</span>
+                  <p className="font-normal text-xs">
+                    CGPA -{" "}
+                    <span className="font-normal text-sm">{student.cgpa}</span>
                   </p>
                 </div>
-                <p>{collegeList[student.rollno.slice(3, 6)]}</p>
+                <p className="text-xs mt-1">
+                  {collegeList[student.rollno.slice(3, 6)]}
+                </p>
               </div>
             );
           })}

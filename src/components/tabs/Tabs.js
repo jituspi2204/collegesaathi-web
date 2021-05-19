@@ -20,7 +20,6 @@ const Tabs = ({ rollno }) => {
     "subjectListSemWise"
   ];
 
-
   const toggleViewHandler = (index) => {
     setToggleView(index);
   };
@@ -42,7 +41,6 @@ const Tabs = ({ rollno }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, data, toggleView]);
-
 
   const tabItems = [
     "Sem 1",
@@ -74,7 +72,9 @@ const Tabs = ({ rollno }) => {
       <div className="flex mb-2">{tabItemJsx}</div>
 
       <div>
-        {error ? <p>Oops ! Something went wrong.</p> : status === "success" && semester ? (
+        {error ? (
+          <p>Oops ! Something went wrong.</p>
+        ) : status === "success" && semester ? (
           <>
             <SubHeading title="Semester Summary" />
             <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3   mb-4 rounded">
@@ -95,19 +95,25 @@ const Tabs = ({ rollno }) => {
               return (
                 <div
                   key={subject.pId}
-                  className="bg-gray-700 p-5 lg:w-2/3  mb-4 rounded"
+                  className="bg-gray-700 p-4 lg:w-2/3  mb-1 rounded"
                 >
-                  <p className="font-bold mb-1">{subject.title}</p>
+                  <p className="font-medium mb-1">{subject.title}</p>
                   <hr className="mb-3" />
-                  <div className="grid grid-cols-2  px-2">
-                    <p>Internal</p>
-                    <p>{subject.internal}</p>
-                    <p>External</p>
-                    <p>{subject.external}</p>
-                    <p>Total</p>
-                    <p>{subject.total}</p>
-                    <p>Credits</p>
-                    <p>{subject.credit}</p>
+                  <div className="px-4 md:px-8 text-sm">
+                    <div className="flex flex-row justify-between items-center">
+                      <p>Internal - {subject.internal}</p>
+                      {/* <p></p> */}
+                      <p>External - {subject.external}</p>
+                      {/* <p></p> */}
+                    </div>
+                    <div className="flex flex-row justify-between items-center">
+                      <p>Total</p>
+                      <p className="text-yellow-400">{subject.total}</p>
+                    </div>
+                    <div className="flex flex-row justify-between items-center">
+                      <p>Credits</p>
+                      <p>{subject.credit}</p>
+                    </div>
                   </div>
                 </div>
               );
