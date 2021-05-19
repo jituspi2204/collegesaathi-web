@@ -42,14 +42,12 @@ const SideNavBar = () => {
       </div> */}
       <div className="flex flex-row max-w-screen justify-between items-center md:flex-col md:h-full bg-gray-800 md:mt-16">
         {user && user.email && (
-          <nav className=" flex md:justify-center flex-row md:flex-col h-full w-full justify-between">
+          <nav className=" flex md:justify-center flex-row md:flex-col h-full w-full justify-evenly">
             {/* <nav className=""> */}
             {MenuItems.map((item, index) => {
-              return item.cName === 'goback' ? (
+              return item.cName === "goback" ? (
                 <div key={index}>
-                  <button
-                    onClick={() => history.goBack()}
-                  >
+                  <button onClick={() => history.goBack()}>
                     <SideBarIcon title={item.title} icon={item.icon} />
                   </button>
                 </div>
@@ -57,7 +55,9 @@ const SideNavBar = () => {
                 <div key={index}>
                   <NavLink
                     to={item.url}
-                    exact={item.url === "/" || item.url === "/my-files/:subject"}
+                    exact={
+                      item.url === "/" || item.url === "/my-files/:subject"
+                    }
                     activeClassName="text-yellow-500"
                   >
                     <SideBarIcon title={item.title} icon={item.icon} />
