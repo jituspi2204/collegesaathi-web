@@ -34,7 +34,7 @@ const Main = (props) => {
         // If firebase user is present ( ie. user is present in firbase db )
         // and user is present in our db too then redirect to home page
         setIsLoggedIn(true);
-        if (location.pathname === "/login") history.push("/development");
+        if (location.pathname === "/login" || location.pathname==='/register') history.push("/development");
         else if (location.pathname === '/') history.push('/development');
         else history.push(location.pathname);
 
