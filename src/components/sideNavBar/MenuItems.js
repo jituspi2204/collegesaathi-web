@@ -51,12 +51,12 @@ const MenuItems = [
     cName: "navLink",
     icon: <IoIosSettings size="25" />,
   },
-  {
-    title: "Go Back",
-    url: "",
-    cName: "goback",
-    icon: <FiArrowLeft size="25" />,
-  },
+  // {
+  //   title: "Go Back",
+  //   url: "",
+  //   cName: "goback",
+  //   icon: <FiArrowLeft size="25" />,
+  // },
 ];
 
 export default MenuItems;
