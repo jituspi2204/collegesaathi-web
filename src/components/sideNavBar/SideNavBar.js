@@ -17,7 +17,7 @@ const SideNavBar = () => {
   };
 
   return (
-    <div className="backdrop-filter backdrop-blur fixed bottom-0 left-0 w-full md:w-32 md:h-screen h-12 md:p-1">
+    <div className="backdrop-filter fixed bottom-0 left-0 w-full md:w-32 md:h-screen h-12 md:p-1">
       {/* <div>
         <div className="group m-2 py-2 px-1 flex flex-col items-center rounded cursor-pointer w-12 sm:w-20">
           <NavLink exact to="/">
