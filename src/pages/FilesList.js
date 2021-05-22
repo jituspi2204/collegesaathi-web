@@ -15,6 +15,7 @@ import {
 import { SubjectListContext } from "../context/subjectListContext";
 import { saveAs } from "file-saver";
 import { FaCloudDownloadAlt } from "react-icons/fa";
+import NotFound from '../components/notFound';
 
 const Search = () => {
   const [searchType, setSearchType] = useState("result");
@@ -61,9 +62,9 @@ const Search = () => {
   };
 //   console.log(files);
   return (
-    <div>
+    <div className="h-11/12">
       <Header title="Home" />
-      <div className="flex flex-col items-start justify-start lg:w-2/3">
+      <div className="flex flex-col items-start justify-start lg:w-2/3 h-full">
         <div className="flex md:flex-row justify-between md:items-center w-full flex-col">
           <SubHeading
             title={
@@ -87,7 +88,7 @@ const Search = () => {
             <option value="labfiles">Lab Files</option>
           </select>
         </div>
-        <div className="flex flex-row justify-between items-center flex-wrap w-full">
+        <div className="flex flex-row justify-between items-center flex-wrap w-full h-full">
           {files && files.length > 0 ? (
             files.map((file) => {
               return (
@@ -149,7 +150,7 @@ const Search = () => {
               );
             })
           ) : (
-            <p className="text-sm">No file found</p>
+              <NotFound title="No file found"/>
           )}
         </div>
       </div>

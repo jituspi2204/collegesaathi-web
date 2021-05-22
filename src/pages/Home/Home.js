@@ -93,7 +93,7 @@ const Home = () => {
       </div> */}
 
       <SubHeading title="My Study Material" />
-      <div className="flex flex-row justify-between items-center w-full flex-wrap">
+      <div className="flex flex-row justify-between items-center w-full lg:w-5/6 flex-wrap">
         {subjectBlock}
       </div>
     </div>

@@ -33,6 +33,7 @@ const Search = () => {
         },
       })
       .then((data) => {
+        userDetails.updateUser(data.data.user);
         let newUser = { ...user, ...data.data.user };
         changeUser(newUser);
       })

@@ -20,6 +20,8 @@ module.exports = {
       "3/4": "75%",
       full: "100%",
       fix: "10rem",
+      "70vh": "70vh",
+      "80vh" : "80vh",
       "100px" : "100px"
     },
 

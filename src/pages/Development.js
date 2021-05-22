@@ -16,7 +16,7 @@ const Search = () => {
     >
       <div className="flex flex-col lg:flex-row items-center justify-center  lg:w-2/3 h-full ">
         <div className="w-full lg:w-1/2 flex flex-col justify-center flex-start p-2">
-          <Header title="OOPs !" />
+          <Header title="Beta Version" />
           <h1 className="text-xl"> Under Development</h1>
           <p className="text-sm text-yellow-400 font-light">
             All features of this application are not working and under

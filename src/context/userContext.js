@@ -33,6 +33,13 @@ const UserProvider = ({ firebaseUser, children }) => {
       await loginHandler();
     }
   };
+
+  const updateUser = (user) => {
+    let newAuth = { ...auth };
+    newAuth.user = user;
+    setAuth(newAuth);
+  }
+
   const verifyUserHandler = async () => {
     // console.log("Inside VerifyUserHandler => UserContext");
     setContextLoading(true);
@@ -44,6 +51,8 @@ const UserProvider = ({ firebaseUser, children }) => {
       await loginHandler();
     }
   };
+
+
 
   const loginHandler = async () => {
     // console.log("Inside loginHandler => UserContext");
@@ -70,6 +79,7 @@ const UserProvider = ({ firebaseUser, children }) => {
   let value = {
     ...auth,
     firebaseUser,
+    updateUser
   };
 
   return contextLoading ? (
