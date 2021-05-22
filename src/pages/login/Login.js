@@ -90,10 +90,19 @@ export const Login = () => {
           </div>
         </section>
         <h1 className="text-sm font-normal my-4 text-center w-full">
-          Designed and Developed by{" "}
-          <span className="text-yellow-400 font-semibold">
-            Jitendra Sharma and Ankit Vashisht
+          Designed and Developed by
+          <a href="https://www.linkedin.com/in/jitendra-sharma-3262ba203/" target="_blank" rel="noreferrer" >
+          <span className="text-yellow-400 font-semibold mx-1 cursor-pointer">
+            Jitendra Sharma 
           </span>
+          </a>
+          &&
+          <a href="https://ankitvashisht12.github.io/" target="_blank" rel="noreferrer">
+          <span className="text-yellow-400 font-semibold ml-1 cursor-pointer">
+            Ankit Vashisht
+          </span>
+          </a>
+
         </h1>
         <div className="flex flex-row justify-center items-center my-1">
           <p className="text-xs">Connect with us on </p>
@@ -103,7 +112,6 @@ export const Login = () => {
             href="https://www.instagram.com/collegesaathi"
             target="blank"
           >
-            {/* <AiFillGoogleCircle size="20" /> */}
             <AiFillInstagram size="24" className="" />
           </a>
         </div>

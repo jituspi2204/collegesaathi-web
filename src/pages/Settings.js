@@ -10,6 +10,7 @@ import {
   AiOutlineQuestionCircle,
   AiOutlineInstagram,
   AiOutlineLogout,
+  AiFillAndroid,
 } from "react-icons/ai";
 import { RiFeedbackFill } from "react-icons/ri";
 import axios from "axios";
@@ -45,8 +46,7 @@ const Search = () => {
     <div>
       <Header title="Account Settings" />
       <div className="flex flex-col items-start justify-start lg:w-4/6">
-        <section className="flex flex-col p-2 rounded w-full bg-gray-700 mb-1">
-          <SubHeading title="Your Details" />
+        <section className="flex flex-col p-3 rounded w-full bg-gray-700 mb-1">
           <div className="flex flex-row justiy-between">
             <div className="mr-4">
               <img
@@ -56,7 +56,7 @@ const Search = () => {
               />
             </div>
             <div className="flex flex-col justify-start align-start flex-auto">
-              <p className="capitalize text-sm font-medium mb-1">{user.name}</p>
+              <p className="capitalize text-lg font-medium mb-1">{user.name}</p>
               <p className="text-xs font-medium text-gray-400 mb-1">
                 {user.rollno}
               </p>
@@ -86,36 +86,47 @@ const Search = () => {
         </section>
         <section className="flex flex-col p-2 rounded w-full bg-gray-700 mb-1">
           <SubHeading title="Settings" />
-          <div className="flex flex-row justify-start p-2 hover:bg-gray-600 rounded">
+          <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
             <IoMdList size={28} color="#ffc404" />
-            <p className="text-sm font-medium mb-1 ml-4">Update My Subjects</p>
+            <p className="text-sm font-medium mb-1 ml-4">Update My Subjects ( Coming soon )</p>
           </div>
         </section>
         <section className="flex flex-col p-2 rounded w-full bg-gray-700 mb-1">
+          <a href="mailto:collegesaathi.india@gmail.com" target="_blank" rel="noreferrer">
           <SubHeading title="Connect With Us" />
-          <div className="flex flex-row justify-start p-2 hover:bg-gray-600 rounded">
+          <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
             <AiOutlineQuestionCircle size={28} color="#ffc404" />
             <p className="text-sm font-medium mb-1 ml-4">
               Have Query, Contact Us
             </p>
-          </div>
+          </div></a>
           <a
             href="https://forms.gle/QHCHTDwJsm2m3TEY8"
+            target="_blank"
+            rel="noreferrer"
             className="cursor-pointer"
           >
-            <div className="flex flex-row justify-start p-2 hover:bg-gray-600 rounded">
+            <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
               <RiFeedbackFill size={28} color="#ffc404" />
               <p className="text-sm font-medium mb-1 ml-4">
                 Feedback and Suggestion
               </p>
             </div>
           </a>
-          <div className="flex flex-row justify-start p-2 hover:bg-gray-600 rounded">
+          <a href="https://www.instagram.com/collegesaathi/" target="_blank" rel="noreferrer">
+          <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
             <AiOutlineInstagram size={28} color="#ffc404" />
             <p className="text-sm font-normal mb-1 ml-4">
               Connect us on Instagram
             </p>
-          </div>
+          </div></a>
+          <a href="https://quiet-scrubland-22380.herokuapp.com/app/collegesaathiapp.apk" target="_blank" rel="noreferrer">
+          <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
+            <AiFillAndroid size={28} color="#ffc404" />
+            <p className="text-sm font-normal mb-1 ml-4">
+              Check out our Android App
+            </p>
+          </div></a>
         </section>
         <section
           className="flex flex-row p-2 rounded w-full bg-gray-700 hover:bg-gray-600 cursor-pointer"
@@ -124,11 +135,13 @@ const Search = () => {
             localStorage.removeItem("token_collegesaathi");
           }}
         >
-          <AiOutlineLogout size={28} color="#ffc404" className="mr-4" />
-          <SubHeading title="Logout" />
+          <div className="flex flex-row items-center justify-start p-2 hover:bg-gray-600 rounded">
+          <AiOutlineLogout size={28} color="#ffc404" />
+          <p className="text-sm font-normal ml-4" >Logout</p>
+          </div>
         </section>
         <p className="text-xs text-center my-4 w-full">
-          For query mail us at <span className="text-sm text-yellow-400">collegesaathi.india@gmail.com</span>
+          Got a query ? Shoot us an email at <span className="text-sm text-yellow-400">collegesaathi.india@gmail.com</span>
         </p>
       </div>
     </div>

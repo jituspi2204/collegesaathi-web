@@ -22,7 +22,10 @@ const AccountSettings = () => {
       <div className="flex flex-row justify-between items-center w-full lg:w-2/3">
         <SubHeading title="Basic Details" />
         <Link to="/rank-list">
-          <FiTrendingUp size="20" />
+          <div className="bg-yellow-400 text-black rounded flex items-center mb-2 cursor-pointer px-2">
+            <FiTrendingUp size="20" className="mr-2" />
+            <p>Rank List</p>
+          </div>
         </Link>
       </div>
       <div className="grid grid-cols-2 bg-gray-700 p-5 lg:w-2/3  text-sm mb-8 rounded">

@@ -19,11 +19,9 @@ const Search = () => {
           <Header title="Beta Version" />
           <h1 className="text-xl"> Under Development</h1>
           <p className="text-sm text-yellow-400 font-light">
-            All features of this application are not working and under
-            development.
-          </p>
+            Few features of this application are still under development.</p>
           <Link className="cursor-pointer self-center" to="/">
-            <p className="p-1 rounded-3xl bg-yellow-400 w-48 text-center my-4 ">
+            <p className="p-1 rounded-3xl bg-yellow-400 w-48 text-center my-4 text-black ">
               Go to Home Page
             </p>
           </Link>
@@ -32,7 +30,7 @@ const Search = () => {
             APK
           </p>
           <a
-            className="p-1 rounded-3xl bg-yellow-400 w-48 text-center my-4 flex flex-row justify-center items-center cursor-pointer self-center"
+            className="p-1 text-black rounded-3xl bg-yellow-400 w-48 text-center my-4 flex flex-row justify-center items-center cursor-pointer self-center"
             href="https://quiet-scrubland-22380.herokuapp.com/app/collegesaathiapp.apk"
           >
             <AiFillAndroid size="20" />

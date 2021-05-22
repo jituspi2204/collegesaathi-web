@@ -5,16 +5,13 @@ import Home from "./Home/Home";
 import Rank from "./Rank";
 import Search from "./Search";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
-import Loading from "../components/loading/Loading";
 import GuardedRoute from "../routes/GauredRoutes";
 import Login from "./login/Login";
 import Settings from "./Settings";
 import Register from "./Register";
 import { UserContext } from "../context/userContext";
-import Development from './Development'
 import FilesList from './FilesList'
 import LOGO from "../assets/images/logo.png";
-import APK_BUTTON from "../assets/images/apk_button.png";
 
 const Main = (props) => {
   const [isRegistered, setIsRegistered] = useState(false);
@@ -34,8 +31,8 @@ const Main = (props) => {
         // If firebase user is present ( ie. user is present in firbase db )
         // and user is present in our db too then redirect to home page
         setIsLoggedIn(true);
-        if (location.pathname === "/login" || location.pathname==='/register') history.push("/development");
-        else if (location.pathname === '/') history.push('/development');
+        if (location.pathname === "/login" || location.pathname==='/register') history.push("/");
+        else if (location.pathname === '/') history.push('/');
         else history.push(location.pathname);
 
       } else {
@@ -93,7 +90,7 @@ const Main = (props) => {
 
         <Route path="/login" component={Login} exact />
         <Route path="/register" component={Register} exact />
-        <Route path="/development" component={Development} exact />
+        {/* <Route path="/development" component={Development} exact /> */}
       </Switch>
     </main>
   );

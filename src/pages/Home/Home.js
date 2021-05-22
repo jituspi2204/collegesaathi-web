@@ -50,15 +50,15 @@ const Home = () => {
         onClick={() => {
           history.push("/my-files/" + subject);
         }}
-        className="flex flex-col justify-between items-center w-2s md:w-3s lg:w-4s my-1 bg-gray-700 p-1 rounded min-h-fix cursor-pointer group"
+        className="flex flex-col justify-between items-center w-2s md:w-3s lg:w-4s my-1 bg-gray-700 p-1 rounded min-h-fix cursor-pointer "
       >
-        <p className="text-xl font-semibold group-hover:animate-bounce">
+        <p className="text-xl font-semibold">
           {subject}
         </p>
-        <p className="text-xs font-regular text-center group-hover:animate-bounce">
+        <p className="text-xs font-regular text-center">
           {subjectName}
         </p>
-        <div className="flex flex-row justify-center items-center group-hover:animate-bounce">
+        <div className="flex flex-row justify-center items-center">
           <BsFileEarmarkPlus color="#ffc404" size={18} />
           <p className="text-sm font-bold text-yellow-400 mx-1">
             {" "}
