@@ -7,8 +7,8 @@ import WEBSITE from "../assets/images/website.svg";
 import { Link } from "react-router-dom";
 import { AiFillAndroid } from "react-icons/ai";
 const Search = () => {
+  
   const [searchType, setSearchType] = useState("result");
-
   return (
     <div
       className="w-full flex flex-col justify-center items-center "
